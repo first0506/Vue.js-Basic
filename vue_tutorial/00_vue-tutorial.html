@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- v- 로 시작하는 특별한 속성 -> Directive -->
+    <!-- v-bind -->
+    <div id="app">
+        <!-- 보간법 -->
+        <p>{{ message }}</p>
+        <!-- v-bind -->
+        <span v-bind:title="message">
+            마우스를 갖다대면 추가 정보가 나타납니다!
+        </span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app', // 사용자가 보는 Element와 Vue 인스턴스를 연결
+            data: {
+                message: 'Hello, 서울 2반!',
+            }
+        })
+    </script>
+</body>
+</html>

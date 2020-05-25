@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-if: 엘리먼트에 표시할 것인지, 안 할 것인지 -->
+        <p v-if="animals">
+            {{ animals }}
+        </p>
+        <!-- v-for: 반복문(루프) 렌더링 -->
+        <ul>
+            <li v-for="animal in animals">{{ animal.name }} ({{ animal.type }})</li>
+        </ul>
+        <!-- v-on: 이벤트 리스너 추가 -->
+        <p>{{ message }}</p>
+        <button v-on:click="reversedMessage">거꾸로 뒤집어!!!!</button>
+        <hr>
+        <!-- v-model: 사용자 입력값과 뷰 인스턴스 간의 데이터 바인딩 -->
+        <input type="text" v-model="userInput">
+    </div>
+
+    <!-- 개발버전, 도움되는 콘솔 경고를 포함. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data: {
+                seen: '몰라몰라몰라',
+                animals: [
+                    {type: '고양이', name:'야옹이'},
+                    {type: '강아지', name:'멍멍이'},
+                    {type: '쥐', name:'햄토리'},
+                ],
+                message: '안녕하세요, 저는 현준입니다!',
+                userInput: '',
+            },
+            methods: {
+                reversedMessage: function() {
+                    // console.log(this)
+                    // console.log(this.message)
+                    this.message = this.message.split('').reverse().join('')
+                }
+            },
+        })
+    </script>
+</body>
+</html>
