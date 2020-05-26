@@ -45,8 +45,11 @@
                         this.photos = [...this.photos, ...res.data] 
                     })
                     .catch(err => console.error(err))
-                }
+                }                
             },
+            created: function() {
+                this.getPhotos()
+            }
         })
         
     </script>
