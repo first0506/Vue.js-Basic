@@ -52,6 +52,7 @@
                     })
                     .catch(err => console.error(err))
                 },                
+                
                 addScrollWatcher: function() {
                     const bottomSensor = document.querySelector('#bottomSensor')
                     const watcher = scrollMonitor.create(bottomSensor)
@@ -62,9 +63,18 @@
                         }, 500)
                     })
                 },
+                
                 scrollToTop: function() {
                     // window.scroll(0, 0)
                     scroll(0, 0)
+                },
+            
+                loadUntilViewportIsFull: function() {
+                    const bottomSensor = document.querySelector('#bottomSensor')
+                    const watcher = scrollMonitor.create(bottomSensor)
+                    if (watcher.isFullyInVeiwport) {
+                        this.getPhotos()
+                    }
                 },
             },
             // created: 초기화 이후 AJAX 요청을 보내기 좋은 Hook(Data, Methods 에 접근 가능)
@@ -75,6 +85,11 @@
             // mounted: DOM 과 Vue 인스턴스가 연동이 완료되고 난 이후에 실행할 일들. 
             mounted: function() {
                 this.addScrollWatcher()
+            },
+            
+            // updated: data({}) 가 바뀌고 나서, 화면이 다시 렌더된 이후,
+            updated: function() {
+                this.loadUntilViewportIsFull()
             },
         })
         
