@@ -1,26 +1,23 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
     <!-- step.3 사용한다. -->
     <MyComponent />
-    <GreatComponent />
+    <!-- <GreatComponent /> -->
   </div>
 </template>
 
 <script>
 // 컴포넌트 사용하기
 // step.1: import 한다.
-import HelloWorld from './components/HelloWorld.vue'
 import MyComponent from './components/MyComponent.vue'
-import GreatComponent from './components/GreatComponent.vue'
+// import GreatComponent from './components/GreatComponent.vue'
 
 export default {
   name: 'App',
   components: {
     // step.2: 등록한다.
-    HelloWorld,
     MyComponent,
-    GreatComponent,
+    // GreatComponent,
   }
 }
 </script>
