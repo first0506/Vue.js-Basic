@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="search-bar">
       <input @keypress.enter="onInput">
   </div>
 </template>
@@ -16,6 +16,19 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+/* 
+    scoped 옵션은 해당 컴포넌트에만 영향을 준다.
+    하지만, class 지정은 해야한다.
+ */
 
+div.search-bar{
+    text-align: center;
+    margin: 20px;
+}
+
+div.search-bar > input {
+    width: 75%
+}
 </style>
+
